@@ -11,7 +11,7 @@ namespace Three_Or_More
                 "\nPlayers take turns rolling five dice and score for three-of-a-kind or better. " +
                 "\nIf a player only has two-of-a-kind, they may re-throw the remaining dice\nin an attempt to improve the remaining dice values." +
                 "\nIf no matching numbers are rolled after two rolls, the player scores 0." +
-                "\nIn this game, you will be up against a bot.");
+                "\n\nIn this game, you will be up against a bot.\nThe bot does not tell you its rolls (mainly for simplicity on the console), but will give you its scoring and tell you if it needs a re-roll.");
             Player();
         }
         public static void Player()
@@ -89,49 +89,24 @@ namespace Three_Or_More
             { Console.WriteLine("3 dice are the same."); score = score + 3; Console.WriteLine("Your score is: " + score); BotPlay(); }
 
             //If two dice are the same
-            else if (dice1 == dice2) { Console.WriteLine("Dice 1 and 2 are the same. Reroll!"); RerollChoise(); }
-            else if (dice1 == dice3) { Console.WriteLine("Dice 1 and 3 are the same. Reroll!"); RerollChoise(); }
-            else if (dice1 == dice4) { Console.WriteLine("Dice 1 and 4 are the same. Reroll!"); RerollChoise(); }
-            else if (dice1 == dice5) { Console.WriteLine("Dice 1 and 5 are the same. Reroll!"); RerollChoise(); }
-            else if (dice2 == dice3) { Console.WriteLine("Dice 2 and 3 are the same. Reroll!"); RerollChoise(); }
-            else if (dice2 == dice4) { Console.WriteLine("Dice 2 and 4 are the same. Reroll!"); RerollChoise(); }
-            else if (dice2 == dice5) { Console.WriteLine("Dice 2 and 5 are the same. Reroll!"); RerollChoise(); }
-            else if (dice3 == dice4) { Console.WriteLine("Dice 3 and 4 are the same. Reroll!"); RerollChoise(); }
-            else if (dice3 == dice5) { Console.WriteLine("Dice 3 and 5 are the same. Reroll!"); RerollChoise(); }
-            else if (dice4 == dice5) { Console.WriteLine("Dice 4 and 5 are the same. Reroll!"); RerollChoise(); }
+            else if (dice1 == dice2) { Console.WriteLine("Dice 1 and 2 are the same. Reroll!"); Reroll(); }
+            else if (dice1 == dice3) { Console.WriteLine("Dice 1 and 3 are the same. Reroll!"); Reroll(); }
+            else if (dice1 == dice4) { Console.WriteLine("Dice 1 and 4 are the same. Reroll!"); Reroll(); }
+            else if (dice1 == dice5) { Console.WriteLine("Dice 1 and 5 are the same. Reroll!"); Reroll(); }
+            else if (dice2 == dice3) { Console.WriteLine("Dice 2 and 3 are the same. Reroll!"); Reroll(); }
+            else if (dice2 == dice4) { Console.WriteLine("Dice 2 and 4 are the same. Reroll!"); Reroll(); }
+            else if (dice2 == dice5) { Console.WriteLine("Dice 2 and 5 are the same. Reroll!"); Reroll(); }
+            else if (dice3 == dice4) { Console.WriteLine("Dice 3 and 4 are the same. Reroll!"); Reroll(); }
+            else if (dice3 == dice5) { Console.WriteLine("Dice 3 and 5 are the same. Reroll!"); Reroll(); }
+            else if (dice4 == dice5) { Console.WriteLine("Dice 4 and 5 are the same. Reroll!"); Reroll(); }
 
             //Else, if no dice are the same
             else { Console.WriteLine("No two die are the same. What a shame! Next, the bot's turn!"); BotPlay(); }
         }
 
-        public static void RerollChoise()
-        {
-            Console.WriteLine("Reroll?");
-            bool continuepar = false;   //Bool used for continuing the program after a choice is made.
-            do
-            {
-                string chooseRoll = Console.ReadLine();
-                switch (chooseRoll)
-                {
-                    case "0": BotPlay(); break;      //User can input '0' for 'No'
-                    case "1": Reroll(); break;      //User can input '1' for 'Yes'
-                    case "no": BotPlay(); break;     //User can input 'no'...
-                    case "No": BotPlay(); break;     //...or 'No' to choose not to reroll
-                    case "yes": Reroll(); break;    //User can input 'yes'...
-                    case "Yes": Reroll(); break;    //...or 'Yes' to choose to reroll
-                    case "roll": Reroll(); break;   //User can also input 'roll'...
-                    case "Roll": Reroll(); break;   //...or 'Roll' to choose to reroll
-                    default:
-                        Console.WriteLine("Invalid answer. Please enter '1' or 'Roll'");    //If the input is invalid, print this line
-                        break;  //Stops when the program is finished
-                }
-            }
-            while (continuepar == false);   //Tells the program to repeat the question
-        }
-
         public static void Reroll()
         {
-            //This method is for when the User gets to reroll because two of the previous dice were the same value
+            //This method is for when the User gets to re-roll because two of the previous dice were the same value
             Console.WriteLine("\nDice rolls: \n");  //Tells user they rolled the dice
             Random rnd = new Random();  //Creates new random
             int dice1 = rnd.Next(1, 7); //Chooses dice 1's value
@@ -207,16 +182,16 @@ namespace Three_Or_More
             { Console.WriteLine("The bot rolled the same 3 dice."); score = score + 3; Console.WriteLine("Bot's score is: " + score); }
 
             //If the bot rolled the same 2 dice
-            else if (bpdice1 == bpdice2) { Console.WriteLine("Dice 1 and 2 are the same. The bot gets to reroll!"); BotReroll(); }
-            else if (bpdice1 == bpdice3) { Console.WriteLine("Dice 1 and 3 are the same. The bot gets to reroll!"); BotReroll(); }
-            else if (bpdice1 == bpdice4) { Console.WriteLine("Dice 1 and 4 are the same. The bot gets to reroll!"); BotReroll(); }
-            else if (bpdice1 == bpdice5) { Console.WriteLine("Dice 1 and 5 are the same. The bot gets to reroll!"); BotReroll(); }
-            else if (bpdice2 == bpdice3) { Console.WriteLine("Dice 2 and 3 are the same. The bot gets to reroll!"); BotReroll(); }
-            else if (bpdice2 == bpdice4) { Console.WriteLine("Dice 2 and 4 are the same. The bot gets to reroll!"); BotReroll(); }
-            else if (bpdice2 == bpdice5) { Console.WriteLine("Dice 2 and 5 are the same. The bot gets to reroll!"); BotReroll(); }
-            else if (bpdice3 == bpdice4) { Console.WriteLine("Dice 3 and 4 are the same. The bot gets to reroll!"); BotReroll(); }
-            else if (bpdice3 == bpdice5) { Console.WriteLine("Dice 3 and 5 are the same. The bot gets to reroll!"); BotReroll(); }
-            else if (bpdice4 == bpdice5) { Console.WriteLine("Dice 4 and 5 are the same. The bot gets to reroll!"); BotReroll(); }
+            else if (bpdice1 == bpdice2) { Console.WriteLine("Dice 1 and 2 are the same. The bot gets to re-roll!"); BotReroll(); }
+            else if (bpdice1 == bpdice3) { Console.WriteLine("Dice 1 and 3 are the same. The bot gets to re-roll!"); BotReroll(); }
+            else if (bpdice1 == bpdice4) { Console.WriteLine("Dice 1 and 4 are the same. The bot gets to re-roll!"); BotReroll(); }
+            else if (bpdice1 == bpdice5) { Console.WriteLine("Dice 1 and 5 are the same. The bot gets to re-roll!"); BotReroll(); }
+            else if (bpdice2 == bpdice3) { Console.WriteLine("Dice 2 and 3 are the same. The bot gets to re-roll!"); BotReroll(); }
+            else if (bpdice2 == bpdice4) { Console.WriteLine("Dice 2 and 4 are the same. The bot gets to re-roll!"); BotReroll(); }
+            else if (bpdice2 == bpdice5) { Console.WriteLine("Dice 2 and 5 are the same. The bot gets to re-roll!"); BotReroll(); }
+            else if (bpdice3 == bpdice4) { Console.WriteLine("Dice 3 and 4 are the same. The bot gets to re-roll!"); BotReroll(); }
+            else if (bpdice3 == bpdice5) { Console.WriteLine("Dice 3 and 5 are the same. The bot gets to re-roll!"); BotReroll(); }
+            else if (bpdice4 == bpdice5) { Console.WriteLine("Dice 4 and 5 are the same. The bot gets to re-roll!"); BotReroll(); }
 
             //Else, if no dice are the same
             else { Console.WriteLine("No two die are the same. What a shame! Next, the player's turn!"); }
@@ -225,7 +200,7 @@ namespace Three_Or_More
 
         public static void BotReroll()
         {
-            //This method is for when the User gets to reroll because two of the previous dice were the same value
+            //This method is for when the User gets to re-roll because two of the previous dice were the same value
             //Console.WriteLine("\nDice rolls: \n");  //Tells user the rolled the dice
             Random rnd = new Random();  //Creates new random
             int bpdice1 = rnd.Next(1, 7); //Chooses dice 1's value
