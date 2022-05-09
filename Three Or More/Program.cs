@@ -134,6 +134,8 @@ namespace Three_Or_More
         }
         public static void BotPlay()
         {
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;
             Console.WriteLine("\nThe bot is now playing their turn.");
             Random rnd = new Random();  //Creates new random
             int bpdice1 = rnd.Next(1, 7);  //Chooses the bot's dice 1 value
@@ -195,6 +197,7 @@ namespace Three_Or_More
 
             //Else, if no dice are the same
             else { Console.WriteLine("No two die are the same. What a shame! Next, the player's turn!"); }
+            Console.ResetColor();
             Player();
         }
 
@@ -224,6 +227,7 @@ namespace Three_Or_More
 
             //Else, if no other dice are the same
             else { Console.WriteLine("Unfortunatly no other dice are the same. What a shame! Next, the player's turn!"); }
+            Console.ResetColor();
             Player(); //Goes to the player
         }
     }
