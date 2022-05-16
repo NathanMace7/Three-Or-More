@@ -56,7 +56,7 @@ namespace Three_Or_More
             }
             else if (botscore >= 50) 
             { 
-                Console.WriteLine("And the Bot wins! \nThe bot's score: " + botscore + "\nPlayer's score: " + playerscore);
+                Console.WriteLine("\nAnd the Bot wins! \nThe bot's score: " + botscore + "\nPlayer's score: " + playerscore);
                 Console.WriteLine("\nWould you like to play again?");  //Program promts user to play again
                 bool continuepar = false;   //Bool used for continuing the program after a choice is made.
                 do
