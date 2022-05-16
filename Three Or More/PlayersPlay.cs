@@ -15,8 +15,8 @@ namespace Three_Or_More
                 string chooseRoll = Console.ReadLine();
                 switch (chooseRoll)
                 {
-                    case "1": case "roll": case "Roll": case "yes": case "Yes": case "y": case "Y": Main(); break;
-                    case "0": case "no": case "No": case "n": case "N": Console.WriteLine("Thanks for playing! Please press any putton to quit"); Console.ReadKey(); Environment.Exit(0); break;
+                    case "1": case "roll": case "Roll": case "yes": case "Yes": case "y": case "Y": Dice(playerscore, botscore); break;
+                    case "0": case "no": case "No": case "n": case "N": case "quit": case "Quit": case "qUit": case "quIt": case "quiT": case "QUit": case "QuIt": case "QuiT": Console.WriteLine("Thanks for playing! Please press any putton to quit"); Console.ReadKey(); Environment.Exit(0); break;
                     default:
                         Console.WriteLine("Valid responses for yes: '1', 'Roll', 'Yes' or 'Y'\nValid responses for no: '0', 'No', or 'N'"); //If the input is invalid, print this line
                         break;  //Stops when the program is finished

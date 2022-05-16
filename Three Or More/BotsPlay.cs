@@ -1,5 +1,6 @@
 ﻿using System;
 using static Three_Or_More.PlayersPlay;
+using static Three_Or_More.Three_Or_More.Program;
 
 namespace Three_Or_More
 {
