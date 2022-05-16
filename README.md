@@ -6,7 +6,7 @@ Players take turns rolling five dice and score for three-of-a-kind or better. If
 * 3-of-a-kind: 3 points
 * 4-of-a-kind: 6 points
 * 5-of-a-kind: 12 points
-The player who reaches 50 points is the winner.
+<br><br>The player who reaches 50 points is the winner.
 
 ## Controls
 To roll you can enter "1", "Roll", "Yes" and "Y".<br>
