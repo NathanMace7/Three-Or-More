@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static Three_Or_More.BotsPlay;
+using static Three_Or_More.Three_Or_More.Program;
 
 namespace Three_Or_More
 {
@@ -18,13 +15,10 @@ namespace Three_Or_More
                 string chooseRoll = Console.ReadLine();
                 switch (chooseRoll)
                 {
-                    case "1": Dice(playerscore, botscore); break;    //User can input '1' for 'Yes'
-                    case "roll": Dice(playerscore, botscore); break; //User can input 'roll'...
-                    case "Roll": Dice(playerscore, botscore); break; //...or 'Roll' to choose to roll
-                    case "r": Dice(playerscore, botscore); break;    //User can input 'r'...
-                    case "R": Dice(playerscore, botscore); break;    //...or 'R' to choose to roll
+                    case "1": case "roll": case "Roll": case "yes": case "Yes": case "y": case "Y": Main(); break;
+                    case "0": case "no": case "No": case "n": case "N": Console.WriteLine("Thanks for playing! Please press any putton to quit"); Console.ReadKey(); Environment.Exit(0); break;
                     default:
-                        Console.WriteLine("Invalid answer. Please enter '1', 'Roll' or 'R'"); //If the input is invalid, print this line
+                        Console.WriteLine("Valid responses for yes: '1', 'Roll', 'Yes' or 'Y'\nValid responses for no: '0', 'No', or 'N'"); //If the input is invalid, print this line
                         break;  //Stops when the program is finished
                 }
             }
@@ -40,7 +34,7 @@ namespace Three_Or_More
             int dice3 = rnd.Next(1, 7); //Chooses dice 3's value
             int dice4 = rnd.Next(1, 7); //Chooses dice 4's value
             int dice5 = rnd.Next(1, 7); //Chooses dice 5's value
-            
+
             //Displays dice rolls ↓
             Console.WriteLine("You rolled a " + dice1 + ".\nYou rolled a " + dice2 + ".\nYou rolled a " + dice3 + ".\nYou rolled a " + dice4 + ".\nYou rolled a " + dice5 + ".\n");
             Game(dice1, dice2, dice3, dice4, dice5, playerscore, botscore); //Goes to Game() method
@@ -52,50 +46,15 @@ namespace Three_Or_More
             { Console.WriteLine("All dice are the same."); playerscore = playerscore + 12; Console.WriteLine("Your score is: " + playerscore); BotPlay(playerscore, botscore); }
 
             //If 4 dice are the same
-            else if (dice1 == dice2 && dice2 == dice3 && dice3 == dice4)    //If dice 1, 2, 3 and 4 are the same
-            { Console.WriteLine("4 dice are the same."); playerscore = playerscore + 6; Console.WriteLine("Your score is: " + playerscore); BotPlay(playerscore, botscore); }
-            else if (dice1 == dice2 && dice2 == dice3 && dice3 == dice5)    //If dice 1, 2, 3 and 5 are the same
-            { Console.WriteLine("4 dice are the same."); playerscore = playerscore + 6; Console.WriteLine("Your score is: " + playerscore); BotPlay(playerscore, botscore); }
-            else if (dice1 == dice2 && dice2 == dice4 && dice4 == dice5)    //If dice 1, 2, 4 and 5 are the same
-            { Console.WriteLine("4 dice are the same."); playerscore = playerscore + 6; Console.WriteLine("Your score is: " + playerscore); BotPlay(playerscore, botscore); }
-            else if (dice1 == dice3 && dice3 == dice4 && dice4 == dice5)    //If dice 1, 3, 4 and 5 are the same
-            { Console.WriteLine("4 dice are the same."); playerscore = playerscore + 6; Console.WriteLine("Your score is: " + playerscore); BotPlay(playerscore, botscore); }
-            else if (dice2 == dice3 && dice3 == dice4 && dice4 == dice5)    //If dice 2, 3, 4 and 5 are the same
+            else if (dice1 == dice2 && dice2 == dice3 && dice3 == dice4 || dice1 == dice2 && dice2 == dice3 && dice3 == dice5 || dice1 == dice2 && dice2 == dice4 && dice4 == dice5 || dice1 == dice3 && dice3 == dice4 && dice4 == dice5 || dice2 == dice3 && dice3 == dice4 && dice4 == dice5)    //If dice 1, 2, 3 and 4 are the same
             { Console.WriteLine("4 dice are the same."); playerscore = playerscore + 6; Console.WriteLine("Your score is: " + playerscore); BotPlay(playerscore, botscore); }
 
             //If 3 dice are the same
-            else if (dice1 == dice2 && dice2 == dice3)  //If dice 1, 2 and 3 are the same
-            { Console.WriteLine("3 dice are the same."); playerscore = playerscore + 3; Console.WriteLine("Your score is: " + playerscore); BotPlay(playerscore, botscore); }
-            else if (dice1 == dice2 && dice2 == dice4)  //If dice 1, 2 and 4 are the same
-            { Console.WriteLine("3 dice are the same."); playerscore = playerscore + 3; Console.WriteLine("Your score is: " + playerscore); BotPlay(playerscore, botscore); }
-            else if (dice1 == dice2 && dice2 == dice5)  //If dice 1, 2 and 5 are the same
-            { Console.WriteLine("3 dice are the same."); playerscore = playerscore + 3; Console.WriteLine("Your score is: " + playerscore); BotPlay(playerscore, botscore); }
-            else if (dice1 == dice3 && dice3 == dice4)  //If dice 1, 3 and 4 are the same
-            { Console.WriteLine("3 dice are the same."); playerscore = playerscore + 3; Console.WriteLine("Your score is: " + playerscore); BotPlay(playerscore, botscore); }
-            else if (dice1 == dice3 && dice3 == dice5)  //If dice 1, 3 and 5 are the same
-            { Console.WriteLine("3 dice are the same."); playerscore = playerscore + 3; Console.WriteLine("Your score is: " + playerscore); BotPlay(playerscore, botscore); }
-            else if (dice1 == dice4 && dice4 == dice5)  //If dice 1, 4 and 5 are the same
-            { Console.WriteLine("3 dice are the same."); playerscore = playerscore + 3; Console.WriteLine("Your score is: " + playerscore); BotPlay(playerscore, botscore); }
-            else if (dice2 == dice3 && dice3 == dice4)  //If dice 2, 3 and 4 are the same
-            { Console.WriteLine("3 dice are the same."); playerscore = playerscore + 3; Console.WriteLine("Your score is: " + playerscore); BotPlay(playerscore, botscore); }
-            else if (dice2 == dice3 && dice3 == dice5)  //If dice 2, 3 and 5 are the same
-            { Console.WriteLine("3 dice are the same."); playerscore = playerscore + 3; Console.WriteLine("Your score is: " + playerscore); BotPlay(playerscore, botscore); }
-            else if (dice2 == dice4 && dice4 == dice5)  //If dice 2, 4 and 5 are the same
-            { Console.WriteLine("3 dice are the same."); playerscore = playerscore + 3; Console.WriteLine("Your score is: " + playerscore); BotPlay(playerscore, botscore); }
-            else if (dice3 == dice4 && dice4 == dice5)  //If dice 3, 4 and 5 are the same
+            else if (dice1 == dice2 && dice2 == dice3 || dice1 == dice2 && dice2 == dice4 || dice1 == dice2 && dice2 == dice5 || dice1 == dice3 && dice3 == dice4 || dice1 == dice3 && dice3 == dice5 || dice1 == dice4 && dice4 == dice5 || dice2 == dice3 && dice3 == dice4 || dice2 == dice3 && dice3 == dice5 || dice2 == dice4 && dice4 == dice5 || dice3 == dice4 && dice4 == dice5)  //If dice 1, 2 and 3 are the same
             { Console.WriteLine("3 dice are the same."); playerscore = playerscore + 3; Console.WriteLine("Your score is: " + playerscore); BotPlay(playerscore, botscore); }
 
             //If two dice are the same
-            else if (dice1 == dice2) { Console.WriteLine("Dice 1 and 2 are the same. Reroll!"); Reroll(playerscore, botscore); }
-            else if (dice1 == dice3) { Console.WriteLine("Dice 1 and 3 are the same. Reroll!"); Reroll(playerscore, botscore); }
-            else if (dice1 == dice4) { Console.WriteLine("Dice 1 and 4 are the same. Reroll!"); Reroll(playerscore, botscore); }
-            else if (dice1 == dice5) { Console.WriteLine("Dice 1 and 5 are the same. Reroll!"); Reroll(playerscore, botscore); }
-            else if (dice2 == dice3) { Console.WriteLine("Dice 2 and 3 are the same. Reroll!"); Reroll(playerscore, botscore); }
-            else if (dice2 == dice4) { Console.WriteLine("Dice 2 and 4 are the same. Reroll!"); Reroll(playerscore, botscore); }
-            else if (dice2 == dice5) { Console.WriteLine("Dice 2 and 5 are the same. Reroll!"); Reroll(playerscore, botscore); }
-            else if (dice3 == dice4) { Console.WriteLine("Dice 3 and 4 are the same. Reroll!"); Reroll(playerscore, botscore); }
-            else if (dice3 == dice5) { Console.WriteLine("Dice 3 and 5 are the same. Reroll!"); Reroll(playerscore, botscore); }
-            else if (dice4 == dice5) { Console.WriteLine("Dice 4 and 5 are the same. Reroll!"); Reroll(playerscore, botscore); }
+            else if (dice1 == dice2 || dice1 == dice3 || dice1 == dice4 || dice1 == dice5 || dice2 == dice3 || dice2 == dice4 || dice2 == dice5 || dice3 == dice4 || dice3 == dice5 || dice4 == dice5) { Console.WriteLine("Dice 1 and 2 are the same. Reroll!"); Reroll(playerscore, botscore); }
 
             //Else, if no dice are the same
             else { Console.WriteLine("No two die are the same. What a shame! Next, the bot's turn!"); BotPlay(playerscore, botscore); }
@@ -118,11 +77,7 @@ namespace Three_Or_More
             { Console.WriteLine("All 3 other dice are the same."); playerscore = playerscore + 12; Console.WriteLine("Your score is: " + playerscore); }
 
             //If 2 other dice are the same
-            else if (dice1 == dice2)    //If dice 1 and 2 are the same
-            { Console.WriteLine("2 other dice are the same."); playerscore = playerscore + 6; Console.WriteLine("Your score is: " + playerscore); }
-            else if (dice1 == dice3)    //If dice 1 and 3 are the same
-            { Console.WriteLine("2 other dice are the same."); playerscore = playerscore + 6; Console.WriteLine("Your score is: " + playerscore); }
-            else if (dice2 == dice3)    //If dice 2 and 3 are the same
+            else if (dice1 == dice2 || dice1 == dice3 || dice2 == dice3)    //If dice 1 and 2 are the same
             { Console.WriteLine("2 other dice are the same."); playerscore = playerscore + 6; Console.WriteLine("Your score is: " + playerscore); }
 
             //Else, if no other dice are the same
