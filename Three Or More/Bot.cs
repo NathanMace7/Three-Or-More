@@ -34,7 +34,7 @@ namespace Three_Or_More
             { Console.WriteLine("The bot rolled the same 3 dice."); botscore = botscore + 3; Console.WriteLine("Bot's score is: " + botscore); }
 
             //If the bot rolled the same 2 dice
-            else if (bpdice1 == bpdice2 || bpdice1 == bpdice3 || bpdice1 == bpdice4 || bpdice1 == bpdice5 || bpdice2 == bpdice3 || bpdice2 == bpdice4 || bpdice2 == bpdice5 || bpdice3 == bpdice4 || bpdice3 == bpdice5 || bpdice4 == bpdice5) { Console.WriteLine("Dice 1 and 2 are the same. The bot gets to re-roll!"); BotReroll(playerscore, botscore); }
+            else if (bpdice1 == bpdice2 || bpdice1 == bpdice3 || bpdice1 == bpdice4 || bpdice1 == bpdice5 || bpdice2 == bpdice3 || bpdice2 == bpdice4 || bpdice2 == bpdice5 || bpdice3 == bpdice4 || bpdice3 == bpdice5 || bpdice4 == bpdice5) { Console.WriteLine("The bot rolled the same two dice. The bot gets to re-roll!"); BotReroll(playerscore, botscore); }
             
             //Else, if no dice are the same
             else { Console.WriteLine("No two die are the same. What a shame! Next, the player's turn!"); }
