@@ -12,4 +12,4 @@ Players take turns rolling five dice and score for three-of-a-kind or better. If
 To roll you can enter "1", "Roll", "Yes" and "Y".<br>
 Or you can quit at any time by entering "0", "No", "N" and "Quit".
 
-A YouTube video about me showinmg off game can be found here: https://youtu.be/wWdqAI_2nYE
+A YouTube video about me showinmg off the game can be found here: https://youtu.be/wWdqAI_2nYE
