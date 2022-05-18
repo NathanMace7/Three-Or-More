@@ -15,10 +15,10 @@ namespace Three_Or_More
                 string chooseRoll = Console.ReadLine();
                 switch (chooseRoll)
                 {
-                    case "1": case "roll": case "Roll": case "yes": case "Yes": case "y": case "Y": Dice(playerscore, botscore); break;
-                    case "0": case "no": case "No": case "n": case "N": case "quit": case "Quit": case "qUit": case "quIt": case "quiT": case "QUit": case "QuIt": case "QuiT": Console.WriteLine("Thanks for playing! Please press any putton to quit"); Console.ReadKey(); Environment.Exit(0); break;
+                    case "1": case "roll": case "Roll": case "RolL": case "RoLl": case "ROll": case "ROLl": case "ROlL": case "RoLL": case "ROLL": case "yes": case "Yes": case "yEs": case "YEs": case "YeS": case "y": case "Y": Dice(playerscore, botscore); break; //All options for continuing
+                    case "0": case "no": case "No": case "n": case "N": case "quit": case "Quit": case "qUit": case "quIt": case "quiT": case "QUit": case "QuIt": case "QuiT": case "qUIt": case "qUiT": case "quIT": case "QUIt": case "QUiT": case "QuIT": case "qUIT": Console.WriteLine("Thanks for playing! Please press any putton to quit"); Console.ReadKey(); Environment.Exit(0); break; //All options for quiting
                     default:
-                        Console.WriteLine("Valid responses for yes: '1', 'Roll', 'Yes' or 'Y'\nValid responses for no: '0', 'No', 'N' or 'Quit"); //If the input is invalid, print this line
+                        Console.WriteLine("Valid responses for yes: '1', 'Roll', 'Yes' or 'Y'\nValid responses for no: '0', 'No', 'N' or 'Quit'"); //If the input is invalid, print this line
                         break;  //Stops when the program is finished
                 }
             }

@@ -18,7 +18,7 @@ namespace Three_Or_More
 
             //Displays dice rolls ↓
             Console.WriteLine("You rolled a " + dice1 + ".\nYou rolled a " + dice2 + ".\nYou rolled a " + dice3 + ".\nYou rolled a " + dice4 + ".\nYou rolled a " + dice5 + ".\n");
-            Comparison(dice1, dice2, dice3, dice4, dice5, playerscore, botscore); //Goes to Game() method
+            Comparison(dice1, dice2, dice3, dice4, dice5, playerscore, botscore); //Goes to Comparison() method
         }
 
         public static void Reroll(int playerscore, int botscore)

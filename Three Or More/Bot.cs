@@ -8,8 +8,10 @@ namespace Three_Or_More
     {
         public static void BotPlay(int playerscore, int botscore)
         {
+            //Sets bot's colour scheme to display when it is their turn
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Black;
+
             Console.WriteLine("\nThe bot is now playing their turn.");
             Random rnd = new Random();  //Creates new random
             int bpdice1 = rnd.Next(1, 7);  //Chooses the bot's dice 1 value
@@ -36,14 +38,14 @@ namespace Three_Or_More
             
             //Else, if no dice are the same
             else { Console.WriteLine("No two die are the same. What a shame! Next, the player's turn!"); }
-            Console.ResetColor();
-            TakeTurn(playerscore, botscore); //Goes to the player
+            
+            Console.ResetColor(); //Removes bot's colour scheme
+            Score(playerscore, botscore); //Goes to check the scores
         }
 
         public static void BotReroll(int playerscore, int botscore)
         {
-            //This method is for when the User gets to re-roll because two of the previous dice were the same value
-            //Console.WriteLine("\nDice rolls: \n");  //Tells user the rolled the dice
+            //This method is for when the but gets to re-roll because two of the previous dice were the same value
             Random rnd = new Random();  //Creates new random
             int bpdice1 = rnd.Next(1, 7); //Chooses dice 1's value
             int bpdice2 = rnd.Next(1, 7); //Chooses dice 2's value
@@ -63,7 +65,7 @@ namespace Three_Or_More
             //Else, if no other dice are the same
             else { Console.WriteLine("Unfortunatly no other dice are the same. What a shame! Next, the player's turn!"); }
             Console.ResetColor();
-            Score(playerscore, botscore);
+            Score(playerscore, botscore); //Goes to check the scores
         }
     }
 }
